@@ -1,0 +1,93 @@
+.TH COLRDX 1
+
+.SH NAME
+colrdx \- hamradio dx-cluster client with ncurses color support
+
+.SH SYNOPSIS
+.B colrdx
+.I "[options]"
+.I "<host>"
+.I "[port]"
+
+At least one argument is needed, which is the host to connect to.
+The default port is 8000 when no portnumber is used.
+
+.SH DESCRIPTION
+.B Colrdx
+is a simple client for amateur radio dx-clusters. In a split-screen
+display you can type commands for the cluster in the bottom part.
+Messages from the dx-cluster will appear in the main window. There
+is also a status line at the top with some basic information.
+
+.SH OPTIONS
+Colrdx needs a callsign in order to be able to login to the cluster.
+.TP
+.B \-c callsign
+Send 'callsign' when connected (required).
+.TP
+.B \-h
+Display help and exit
+.TP
+.B \-n
+Start colrdx in black and white, even if terminal has color support.
+.TP
+.B \-v
+Display version and exit
+
+
+.SH LINE EDITING COMMANDS
+
+.TP
+.B Ctrl-A 
+Goto beginning of line.
+.TP
+.B Ctrl-B and Left arrow
+Go one character backward.
+.TP
+.B Ctrl-D
+Delete character under cursor.
+.TP
+.B Ctrl-E
+Goto end of line.
+.TP
+.B Ctrl-F and Right arrow 
+Go one character forward.
+.TP
+.B Ctrl-K
+Kill from cursor to end of line (and store to kill buffer).
+.TP
+.B Ctrl-L
+Repaints the whole screen.
+.TP
+.B Ctrl-N and Down arrow
+Scroll Down.
+.TP
+.B Ctrl-P and Up arrow
+Scroll Up.
+.TP
+.B Ctrl-R 
+Reprint current line.
+.TP
+.B Ctrl-U 
+Delete current line in total.
+.TP
+.B Ctrl-W 
+Erase last word.
+.TP
+.B Ctrl-Y
+Yank kill buffer.
+
+.PP
+The scroll buffer can be browsed with arrow keys Up and Down (or Ctrl-P 
+and Ctrl-N), PageUp, PageDown, Home and End keys.
+
+.SH FILES
+If 
+.B ~/.colrdxrc 
+exists, it is sent to the server after logging in. 
+Handy for automatically sending commands.
+
+.SH AUTHOR
+Colrdx was written by Joop Stakenborg <pg4i@amsat.org>. Most of the code
+was taken from colrconv, written by Tomi Manninen, OH2BNS. It is based
+on the public domain program ttylink by Dave Perry, VA3DP.

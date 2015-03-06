@@ -1,0 +1,8 @@
+autom4te.cache/
+build/
+configure
+compile
+depcomp
+INSTALL
+install-sh
+missing

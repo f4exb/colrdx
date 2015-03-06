@@ -1,0 +1,10 @@
+AC_INIT(src/colrdx.c)
+
+PACKAGE=colrdx
+VERSION=1.0.4
+
+AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
+
+AC_PROG_CC
+
+AC_OUTPUT(Makefile src/Makefile)

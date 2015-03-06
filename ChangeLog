@@ -1,0 +1,17 @@
+colrdx-1.02 - Mar 9, 2006
+
+* Patches by Jason, AI4JW:
+* MacOSX compilation fixes.
+* Several code cleanups.
+* Fix buffer overflows.
+* Using the backspace key would leave black spaces. Fixed.
+
+colrdx-1.01 - Jan 26, 2006
+
+* Use portnumber instead of service.
+* Explain the default portnumber used in the manual page.
+* Install the manual page also.
+
+colrdx-1.0 - Aug 11, 2005
+
+* Initial release.

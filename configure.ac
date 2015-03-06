@@ -1,7 +1,4 @@
-PACKAGE=colrdx
-VERSION=1.0.4
-
-AC_INIT($PACKAGE, $VERSION)
+AC_INIT([colrdx], [1.0.4])
 AC_CONFIG_SRCDIR([src/colrdx.c])
 AM_INIT_AUTOMAKE
 

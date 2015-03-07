@@ -3,6 +3,8 @@ colrdx
 
 This is a version of colrdx with enhancements to connect to ON4KST chat a.k.a. "KST". KST is a chat for Amateur Radio to arrange contacts in the higher bands of the spectrum where random contacts are rare or impossible due to the very narrow beamwidth of the antennas. The chat also allows the posting of noticeable contacts a.k.a. "DX spots" that help the others to estimate the conditions of propagation.
 
+It connects to the KST server via telnet on address `www.on4kst.info` and port `23000`.
+
 # Installation and usage
 ## Get the code
 Just clone this repository
@@ -11,8 +13,14 @@ Just clone this repository
 You need to install the "auto tools": automake and autoconf. On Debian distributions just install automake and the rest will follow as a dependency:
   - `sudo apt-get install automake`
 
-Then create the configure script and other things with the "auto tools". Just run the `bootstrap.sh` script.
+Then create the configure script and other things with the "auto tools". Just run the `bootstrap.sh` script inside the clone.
+  - `cd colrdx`
+  - `./bootstrap.sh`
 
+## Prerequisites
+The configure script will yell if you are missing libncurses development library. In Debian distributions this is installed with:
+  - `sudo apt-get install libncurses5-dev`
+  
 ## Build
   - Make a build directory inside your clone
     - `mkdir build`

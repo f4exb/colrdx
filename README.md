@@ -1,7 +1,7 @@
 colrdx
 ======
 
-This is a version of [colrdx](http://dev.man-online.org/man1/colrdx/) with enhancements to connect to ON4KST chat a.k.a. "KST". KST is a chat for Amateur Radio to arrange contacts in the higher bands of the spectrum where random contacts are rare or impossible due to the very narrow beamwidth of the antennas. The chat also allows the posting of noticeable contacts a.k.a. "DX spots" that help the others to estimate the conditions of propagation.
+This is a version of [colrdx](http://dev.man-online.org/man1/colrdx/) with enhancements to connect to [ON4KST chat](http://www.on4kst.com/chat/start.php) a.k.a. "KST". KST is a chat for Amateur Radio to arrange contacts in the higher bands of the spectrum where random contacts are rare or impossible due to the very narrow beamwidth of the antennas. The chat also allows the posting of noticeable contacts a.k.a. "DX spots" that help the others estimate the conditions of propagation.
 
 It connects to the KST server via telnet on address `www.on4kst.info` and port `23000`.
 

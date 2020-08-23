@@ -6,9 +6,9 @@
  * Revision 1.02  2006/03/09
  *
  */
- 
+
 #include <stdlib.h>
-#include <sys/types.h> 
+#include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/time.h>
 #include <netinet/in.h>
@@ -25,7 +25,7 @@
 #include <ncurses.h>
 #include <errno.h>
 #include <time.h>
-#include <string.h> 
+#include <string.h>
 #include <regex.h>
 
 #define RXBUFFSIZE 1024
@@ -62,7 +62,7 @@ static void pre_exit(char *, char *, int);
 static void display_line(char *buffer, WINDOW *);
 extern void display_line_kst(char *buffer, WINDOW *, int w_nblines, int w_nbcols);
 
-static char *Version = "colrdx 1.04 made for KST";
+static char *Version = COLRDX_VERSION;
 
 int HasColors = 0;
 static int NoColor   = 0;
@@ -116,7 +116,7 @@ parsecommandline (int argc, char *argv[])
 				break;
 			default:
 				exit (0);
-			
+
 		}
 	}
 
@@ -192,7 +192,7 @@ int main (int argc, char *argv[])
 	refresh();			/* This will clear the screen at this point */
 	cbreak();			/* Char mode input */
 	noecho();			/* No automatic screen echo */
- 
+
 	rxwin = newpad(SCROLLBUFFSIZE,COLS); /* receive window */
 	txwin = newwin(TXWINHEIGHT,COLS,LINES-TXWINHEIGHT,0); /* transmit window */
 	wattrset(rxwin,0);
@@ -216,7 +216,7 @@ int main (int argc, char *argv[])
 		serv_addr.sin_addr.s_addr = inet_addr(hostaddress);
 		hp = &dummy;
 		hp->h_name = "";
-	} 
+	}
 	else
 	{
 		status(RESOLVING,hostaddress,0,0,0);
@@ -256,7 +256,7 @@ int main (int argc, char *argv[])
 		perror("colrdx: Can't open socket");
 		exit(1);
 	}
-	
+
 	/* Attempt to connect */
 	if (connect(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr))<0)
 	{
@@ -281,7 +281,7 @@ int main (int argc, char *argv[])
 	}
 
 	/* Read ~/.colrdxrc */
-  
+
 	sprintf(txbuff, "%s/.colrdxrc", getenv("HOME"));
 	if (!access(txbuff, R_OK))
 	{
@@ -319,8 +319,8 @@ int main (int argc, char *argv[])
 	{
 		/* Now initialize file descriptor sets for select() */
 		FD_ZERO(&read_fdset);
-		FD_SET(sockfd,&read_fdset); 
-		FD_SET(STDIN_FILENO,&read_fdset); 
+		FD_SET(sockfd,&read_fdset);
+		FD_SET(STDIN_FILENO,&read_fdset);
 		timeout.tv_sec = 1;	/* paranoid timer */
 		timeout.tv_usec = 0;
 		/* Wake me if something happens */
@@ -335,7 +335,7 @@ int main (int argc, char *argv[])
 		}
 		/* Check for receive data */
 		while((recvretval = recv(sockfd,&ch,1,0)) != -1)
-		{ 
+		{
 			c = ch;
 			/* one byte at a time so we can strip chars */
 			if(recvretval == 0)
@@ -625,21 +625,21 @@ static int my_waddch(WINDOW *win, chtype c, int ins)
 		my_wmove(win,1);
 	}
 	return OK;
-}	
+}
 
 static int my_wmove(WINDOW *win, int dir)
 {
 	int x,y;
 
 	getyx(win,y,x);
-	if(dir > 0) 
+	if(dir > 0)
 	{	/* forward */
 		if(++x > (COLS-1))
 		{
 			x = 0;
 			y++;
 		}
-	} 
+	}
 	else
 	{	/* backward */
 		if(--x < 0)
@@ -720,7 +720,7 @@ static void status(int stat, const char *host, int port, int offset, int lines)
 	time(&tim);
 	setenv("TZ","GMT",1);
 	t = localtime(&tim);
-	sprintf(line,"- %s -- %s/%d -- %02d:%02dZ -- %s",
+	sprintf(line,"- colrdx %s made for KST -- %s/%d -- %02d:%02dZ -- %s",
 		Version,pos,lines,t->tm_hour,t->tm_min,cp);
 	cp = strdup(host);
 	sprintf(pos,"%d",port);
@@ -768,7 +768,7 @@ void display_line(char *rxptr, WINDOW *rxwin)
 		rxcolor = 2;
 		wattron(rxwin,A_BOLD);
 	}
-	else if((!strncmp(rxptr,"WCY de ", 7) 
+	else if((!strncmp(rxptr,"WCY de ", 7)
 			|| !strncmp(rxptr,"WWV de ", 7)) && HasColors)
 	{
 		rxcolor = 6;

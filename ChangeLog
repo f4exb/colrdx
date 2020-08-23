@@ -1,3 +1,9 @@
+colrdx (1.5.0-1) unstable; urgency=medium
+
+  * Implemented cmake build and standard versioning
+
+  -- Edouard Griffiths, F4EXB <f4exb06@gmail.com>  Sun, 23 Aug 2020 17:25:44 +0200
+
 colrdx-1.02 - Mar 9, 2006
 
 * Patches by Jason, AI4JW:
